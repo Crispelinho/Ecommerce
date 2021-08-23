@@ -1,5 +1,5 @@
 from django.db import models
-from shippingmanagement.models import StateShipment
+from principal.models import StateShipment
 from ordermanagement.models import Order
 # Create your models here.
 class Shipment(models.Model):

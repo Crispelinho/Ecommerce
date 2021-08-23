@@ -4,8 +4,13 @@ import os
 import sys
 
 
-def main():
+def main(arg2):
     """Run administrative tasks."""
+    environment='development'
+    if arg2:
+        environment='production'
+        sys.argv.pop(arg2)
+
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerce.settings')
     try:
         from django.core.management import execute_from_command_line
@@ -19,4 +24,7 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    arg=''
+    if sys.argv[len(sys.argv)-1]=='PROD':
+        arg = len(sys.argv)-1
+    main(arg)

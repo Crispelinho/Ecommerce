@@ -15,7 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url, include
+from django.conf.urls.static import static
+from django.conf import settings
+from rest_framework_jwt.views import obtain_jwt_token
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+     path('principal/', include('principal.urls')),
+    #  path('ordermanagement/', include('ordermanagement.urls')),
+    #  path('shippingmanagement/', include('shippingmanagement.urls')),
+     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+     url(r'^api-token-auth/', obtain_jwt_token),
+
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

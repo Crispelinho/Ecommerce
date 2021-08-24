@@ -1,18 +1,18 @@
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth.decorators import login_required
-from principal.views import *
+from ordermanagement.views import *
 from rest_framework_jwt.views import obtain_jwt_token
 from django.conf.urls import url, include
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'paymentMethod', PaymentMethodViewSet)
-router.register(r'stateProduct', StateProductViewSet)
-router.register(r'stateOrder', StateOrderViewSet)
-router.register(r'stateShipment', StateShipmentViewSet)
+router.register(r'product', ProductViewSet)
+router.register(r'order', OrderViewSet)
+router.register(r'orderProduct', OrderProductViewSet)
+router.register(r'payment', PaymentViewSet)
+router.register(r'oredePayment', OrderPaymentViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', include(router.urls))
 ]

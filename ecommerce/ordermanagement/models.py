@@ -16,7 +16,7 @@ class Order(models.Model):
     date = models.DateField()
     state = models.ForeignKey(StateOrder, blank=False, on_delete=models.CASCADE)
     payment_method = models.ForeignKey(PaymentMethod, blank=False, on_delete=models.CASCADE)
-    shipment_address = models.CharField(max_length=4)
+    shipment_address = models.CharField(max_length=50)
     amount = models.FloatField()
     pending_amount = models.FloatField()
     order_product = models.ManyToManyField(Product, through='OrderProduct')

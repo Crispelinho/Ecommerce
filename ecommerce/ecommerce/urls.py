@@ -26,8 +26,8 @@ from rest_framework_simplejwt.views import (
 
 urlpatterns = [
      path('principal/', include('principal.urls')),
-    #  path('ordermanagement/', include('ordermanagement.urls')),
-    #  path('shippingmanagement/', include('shippingmanagement.urls')),
+     path('ordermanagement/', include('ordermanagement.urls')),
+     path('shippingmanagement/', include('shippingmanagement.urls')),
      path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
      path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
      url(r'^api-token-auth/', obtain_jwt_token),

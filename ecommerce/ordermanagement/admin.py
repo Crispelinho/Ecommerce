@@ -9,9 +9,9 @@ class ProductAdmin(admin.ModelAdmin):
     icon_name = 'person'
     list_per_page=10
 class OrderAdmin(admin.ModelAdmin):
-    list_display=("id","date","state","payment_method","shipment_address","amount","pending_amount","datetime_created","datetime_updated")
-    search_fields=("date","state")
-    list_filter=("date",)
+    list_display=("id","state","payment_method","shipment_address","amount","pending_amount","datetime_created","datetime_updated")
+    search_fields=("state",)
+    list_filter=("state",)
     icon_name = 'person'
     list_per_page=10
 class OrderProductAdmin(admin.ModelAdmin):

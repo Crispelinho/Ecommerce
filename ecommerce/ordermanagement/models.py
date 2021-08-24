@@ -1,5 +1,6 @@
 from django.db import models
 from principal.models import PaymentMethod, StateOrder, StateProduct
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Product(models.Model):
@@ -13,25 +14,31 @@ class Product(models.Model):
 
 class Order(models.Model):
     id = models.AutoField(primary_key = True)
-    date = models.DateField()
     state = models.ForeignKey(StateOrder, blank=False, on_delete=models.CASCADE)
     payment_method = models.ForeignKey(PaymentMethod, blank=False, on_delete=models.CASCADE)
     shipment_address = models.CharField(max_length=50)
     amount = models.FloatField()
-    pending_amount = models.FloatField()
-    order_product = models.ManyToManyField(Product, through='OrderProduct')
+    pending_amount = models.FloatField(blank=True,null=True)
+    orderproducts = models.ManyToManyField(Product, through='OrderProduct')
+    user = models.ForeignKey(User, blank=False, on_delete=models.CASCADE)
     datetime_created = models.DateTimeField('Fecha de creación de la orden',auto_now= False, auto_now_add = True)
     datetime_updated = models.DateTimeField('Fecha de actualización de la orden',auto_now= True, auto_now_add = False)
     def __str__(self):
-        return (self.name)
+        return (str(self.id))
+    def save(self, *args, **kwargs):
+        self.pending_amount = self.amount
+        super().save(*args, **kwargs)
 
 class OrderProduct(models.Model):
     id = models.AutoField(primary_key = True)
     product = models.ForeignKey(Product, blank=False, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, blank=False, on_delete=models.CASCADE)
     quantity = models.FloatField()
-    unit_price = models.FloatField()
-
+    unit_price = models.FloatField(blank=True,null=True)
+    def save(self, *args, **kwargs):
+        product = Product.objects.filter(id=self.product.id).first()
+        self.unit_price = product.unit_price
+        super().save(*args, **kwargs)
 class Payment(models.Model):
     id = models.AutoField(primary_key = True)
     paymentmethod = models.ForeignKey(PaymentMethod, blank=False, on_delete=models.CASCADE)

@@ -11,7 +11,11 @@ class ProductViewSet(viewsets.ModelViewSet):
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
-
+    def get_serializer(self, *args, **kwargs):
+        if self.request.method.lower() == 'post':
+            data = kwargs.get('data')
+            kwargs['many'] = isinstance(data, list)
+        return super(OrderViewSet, self).get_serializer(*args, **kwargs)
 class OrderProductViewSet(viewsets.ModelViewSet):
     queryset = OrderProduct.objects.all()
     serializer_class = OrderProductSerializer

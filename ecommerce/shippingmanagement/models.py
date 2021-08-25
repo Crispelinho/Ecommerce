@@ -8,4 +8,4 @@ class Shipment(models.Model):
     state = models.ForeignKey(StateShipment, blank=False, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, blank=False, on_delete=models.CASCADE)
     def __str__(self):
-        return (self.name)
+        return (str(self.id))

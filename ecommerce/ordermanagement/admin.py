@@ -35,5 +35,6 @@ class OrderPaymentAdmin(admin.ModelAdmin):
 
 admin.site.register(Product,ProductAdmin)
 admin.site.register(Order,OrderAdmin)
+admin.site.register(Payment,PaymentAdmin)
 admin.site.register(OrderProduct,OrderProductAdmin)
 admin.site.register(OrderPayment,OrderPaymentAdmin)

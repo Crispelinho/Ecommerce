@@ -41,10 +41,13 @@ class OrderProduct(models.Model):
         super().save(*args, **kwargs)
 class Payment(models.Model):
     id = models.AutoField(primary_key = True)
+    # reference = models.CharField()
     paymentmethod = models.ForeignKey(PaymentMethod, blank=False, on_delete=models.CASCADE)
     payment_value = models.FloatField()
-    datetime_payment = models.DateTimeField()
-
+    datetime_payment = models.DateTimeField('Fecha de realización del pago',auto_now= False, auto_now_add = True)
+    order_payment = models.ManyToManyField(Order, through='OrderPayment')
+    def __str__(self):
+        return (str(self.id))
 class OrderPayment(models.Model):
     id = models.AutoField(primary_key = True)
     order = models.ForeignKey(Order, blank=False, on_delete=models.CASCADE)

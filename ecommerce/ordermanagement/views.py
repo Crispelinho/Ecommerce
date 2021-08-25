@@ -23,7 +23,11 @@ class OrderProductViewSet(viewsets.ModelViewSet):
 class PaymentViewSet(viewsets.ModelViewSet):
     queryset = Payment.objects.all()
     serializer_class = PaymentSerializer
-
+    def get_serializer(self, *args, **kwargs):
+        if self.request.method.lower() == 'post':
+            data = kwargs.get('data')
+            kwargs['many'] = isinstance(data, list)
+        return super(PaymentViewSet, self).get_serializer(*args, **kwargs)
 class OrderPaymentViewSet(viewsets.ModelViewSet):
     queryset = OrderPayment.objects.all()
     serializer_class = OrderPaymentSerializer

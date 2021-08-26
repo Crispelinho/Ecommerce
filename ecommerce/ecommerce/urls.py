@@ -18,14 +18,22 @@ from django.urls import path
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.conf import settings
+from ordermanagement.views import *
+from shippingmanagement.views import *
 from rest_framework_jwt.views import obtain_jwt_token
 
 urlpatterns = [
+     path('', ProductFormView),
      path('principal/', include('principal.urls')),
      path('ordermanagement/', include('ordermanagement.urls')),
      path('shippingmanagement/', include('shippingmanagement.urls')),
+     path('product/', ProductFormView),
+     path('order/', OrderFormView),    
+     path('shipment/', ShipmentFormView), 
+     path('payment/', PaymentFormView),  
+    #  path('admin/',ProductFormView, name='admin'),
      url(r'^api-token-auth/', obtain_jwt_token),
-     path('', admin.site.urls),
+     path('admin/', admin.site.urls, name='admin'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

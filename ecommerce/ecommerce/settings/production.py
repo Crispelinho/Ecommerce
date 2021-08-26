@@ -11,7 +11,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-        
+
         # 'ENGINE': 'django.db.backends.mysql',
         # 'NAME': 'qualit_ecommerce',       
         # 'USER': 'qualit_ecommerce',  
@@ -33,12 +33,12 @@ else:
     STATIC_URL = '/static/'
     
 STATIC_ROOT = os.path.join(BASE_DIR,'static') # Rutas producción
-
+    # print(STATIC_ROOT)
 MEDIA_URL = '/static/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static','media')
-
+# print(MEDIA_ROOT)
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'ilm/static'),  #Rutas desarrollo
+    os.path.join(BASE_DIR, 'ecommerce/static'),  #Rutas desarrollo
 )
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

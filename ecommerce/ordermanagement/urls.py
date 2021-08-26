@@ -8,7 +8,7 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'product', ProductViewSet)
-router.register(r'order', OrderViewSet)
+router.register(r'order', OrderViewSet, basename="order")
 router.register(r'orderProduct', OrderProductViewSet)
 router.register(r'payment', PaymentViewSet)
 router.register(r'oredePayment', OrderPaymentViewSet)

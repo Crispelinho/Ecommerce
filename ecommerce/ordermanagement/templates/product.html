@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Registro Index{% endblock %}
+{% block clase %}active{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+        <form action="/product/" method="POST" enctype="multipart/form-data">{% csrf_token %}
+            <!-- {{form.as_ul}} -->
+            <div class="row ">
+                <div class="form-group col-md-6">
+                    <label for="desde-text" class="col-form-label">Name:</label>
+                    {{form.name}}
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="message-text" class="col-form-label">Quantity:</label>
+                    {{form.quantity}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="desde-text" class="col-form-label">Unit Price:</label>
+                    {{form.unit_price}}
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="desde-text" class="col-form-label">State:</label>
+                    <select class="form-control" name="state" >
+                        <option value="0">Select State</option>
+                        {% for st in states %}
+                        <option value="{{st.id}}">{{st.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <!-- <div class="form-group col-md-6">
+                    <label for="desde-text" class="col-form-label">State:</label>
+                    {{form.state}}
+                </div> -->
+            </div>
+            <Button class="btn btn-primary" type="submit">Save</Button>
+        </form>
+
+        <div>
+            <br>
+            <table id="myTable" class="table table-hover table-striped  table-bordered text-center ancho">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">QUANTITY</th>
+                        <th scope="col">UNIT PRICE</th>
+                        <th scope="col">STATE</th>
+                        <th scope="col">ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in products %}
+                    <tr>
+                        <th>{{ forloop.counter }}</th>   
+                        <td>{{ p.name }}</td>
+                        <td>{{ p.quantity }}</td>
+                        <td>{{ p.unit_price }}</td>
+                        <td>{{ p.state }}</td>
+                        <td><button type="button" class="btn btn-success ">Editar</button>
+                            <button type="button" class="btn btn-danger">Eliminar</button></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+</div>
+{% endblock %}

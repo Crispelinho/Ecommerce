@@ -1,6 +1,6 @@
 from ecommerce.settings.common import *
 
-DEBUG = True
+DEBUG = False
 # print(os.environ)
 # SECRET_KEY = os.environ['SECRET_KEY']
 
@@ -9,14 +9,15 @@ ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
-      # 'ENGINE': 'django.db.backends.sqlite3',
-      # 'NAME': BASE_DIR / 'db.sqlite3',
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'qualit_ecommerce',       
-        'USER': 'qualit_ecommerce',  
-        'PASSWORD': 'QDataSoft2020',  
-        'HOST': 'localhost', 
-        'PORT': '3306', 
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        
+        # 'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': 'qualit_ecommerce',       
+        # 'USER': 'qualit_ecommerce',  
+        # 'PASSWORD': 'QDataSoft2020',  
+        # 'HOST': 'localhost', 
+        # 'PORT': '3306', 
     }
 }
 

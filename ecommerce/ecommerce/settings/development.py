@@ -5,7 +5,7 @@ DEBUG = True
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
@@ -36,7 +36,7 @@ MEDIA_URL = '/static/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static','media')
 # print("BASE_DIR:",BASE_DIR)
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'ilm/static'),  #Rutas desarrollo
+    os.path.join(BASE_DIR, 'ecommerce/static'),  #Rutas desarrollo
 )
 # print("STATICFILES_DIRS:",STATICFILES_DIRS)
 

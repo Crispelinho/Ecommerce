@@ -13,6 +13,5 @@ router.register(r'stateOrder', StateOrderViewSet)
 router.register(r'stateShipment', StateShipmentViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', include(router.urls))
 ]

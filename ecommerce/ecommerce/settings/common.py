@@ -29,7 +29,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
 INSTALLED_APPS = [
-    # 'admin_interface',
+    'admin_interface',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     # 'django_filters',
     # 'drf_multiple_model',
     # 'rest_framework_simplejwt',
-    # 'colorfield',
+    'colorfield',
 ]
 
 REST_FRAMEWORK = {

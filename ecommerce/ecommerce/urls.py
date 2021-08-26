@@ -25,7 +25,7 @@ urlpatterns = [
      path('ordermanagement/', include('ordermanagement.urls')),
      path('shippingmanagement/', include('shippingmanagement.urls')),
      url(r'^api-token-auth/', obtain_jwt_token),
-
+     path('', admin.site.urls),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

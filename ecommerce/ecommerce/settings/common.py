@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'import_export',
     'principal',
     'ordermanagement',
-    'shippingmanagement'
+    'shippingmanagement',
+    'bootstrap4',
+    # 'svg',
     # 'rest_framework.authtoken',
     # 'django_filters',
     # 'drf_multiple_model',
@@ -62,7 +64,6 @@ REST_FRAMEWORK = {
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 10,

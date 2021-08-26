@@ -28,3 +28,8 @@ Esta aplicación permitirá sistematizar los procesos para realizar un flujo de 
   - pip install whitenoise
  
  ## Instalación para prueba con docker
+
+
+ ### Instalación para prueba con docker
+  - docker-compose build
+  - docker-compose up

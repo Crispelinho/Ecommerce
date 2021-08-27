@@ -38,6 +38,6 @@ Esta aplicación permitirá sistematizar los procesos para realizar un flujo de 
   > ```foo@bar:~$ python manage.py runserver PROD```
    
  ## Despliegue Servidor de Producción con Docker
-  > ```foo@bar:~$docker-compose build```
+  > ```foo@bar:~$ docker-compose build```
   > 
-  > ```foo@bar:~$docker-compose up```
+  > ```foo@bar:~$ docker-compose up```

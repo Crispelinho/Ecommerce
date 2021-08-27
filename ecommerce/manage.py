@@ -10,7 +10,7 @@ def main(arg2):
     if arg2:
         environment='development' 
         sys.argv.pop(arg2)
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerce.settings.'+environment)
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerce.settings.'+environment)
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

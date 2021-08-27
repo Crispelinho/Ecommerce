@@ -28,13 +28,13 @@ Esta aplicación permitirá sistematizar los procesos para realizar un flujo de 
  
   Nota: Para más información revisar archivo requeriments.txt.
  ## Despliegue Servidor de Desarrollo
-  > ```foo@bar:~$ cd ecommerce```
-  > ```foo@bar:~$ python manage.py runserver```
+  > ```foo@bar:~$ cd ecommerce
+  > foo@bar:~$ python manage.py runserver```
 
  ## Despliegue Servidor de Desarrollo
-  > ```foo@bar:~$ cd ecommerce```
-  > ```foo@bar:~$ python manage.py runserver PROD```
+  > ```foo@bar:~$ cd ecommerce
+  > foo@bar:~$ python manage.py runserver PROD```
    
  ### Instalación para prueba con docker
-  > ```foo@bar:~$docker-compose build```
-  > ```foo@bar:~$docker-compose up```
+  > ```foo@bar:~$docker-compose build
+  > foo@bar:~$docker-compose up```

@@ -32,7 +32,7 @@ Esta aplicación permitirá sistematizar los procesos para realizar un flujo de 
   > 
   > ```foo@bar:~$ python manage.py runserver```
 
- ## Despliegue Servidor de Desarrollo
+ ## Despliegue Servidor de Producción
   > ```foo@bar:~$ cd ecommerce```
   > 
   > ```foo@bar:~$ python manage.py runserver PROD```

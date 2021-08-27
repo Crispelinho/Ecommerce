@@ -50,6 +50,9 @@ Esta aplicación permitirá sistematizar los procesos para realizar un flujo de 
   > 
   > ```foo@bar:~$ docker-compose up```
 
+
+ ### Ejecutar Tests
+  > ```foo@bar:~$ python .\manage.py test```
 ## Aplicación 
 
 ### Instalar un administrador de SQLITE

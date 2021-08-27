@@ -30,19 +30,22 @@ Esta aplicación permitirá sistematizar los procesos para realizar un flujo de 
  ## Despliegue Servidor de Desarrollo
   > ```foo@bar:~$ cd ecommerce```
   > 
-  > ```foo@bar:~$ python manage.py runserver```
+  > ```foo@bar:~$ python manage.py runserver DEV```
 
  ## Despliegue Servidor de Producción
   > ```foo@bar:~$ cd ecommerce```
   > 
-  > ```foo@bar:~$ python manage.py runserver PROD```
+  > ```foo@bar:~$ python manage.py runserver ```
    
  ## Despliegue Servidor de Producción con Docker
  
  ### Instalar Docker
-  -  Descargar e instalar docker: https://docs.docker.com/engine/install/centos/
+  -  Descargar e instalar docker: https://docs.docker.com/engine/install/
 
- ### Despligue del Servidor
+ ### Instalar Docker Compose
+  -  Descargar e instalar docker-compose: https://docs.docker.com/compose/install/
+
+ ### Despliegue del Servidor
   > ```foo@bar:~$ docker-compose build```
   > 
   > ```foo@bar:~$ docker-compose up```

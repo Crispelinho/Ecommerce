@@ -38,6 +38,11 @@ Esta aplicación permitirá sistematizar los procesos para realizar un flujo de 
   > ```foo@bar:~$ python manage.py runserver PROD```
    
  ## Despliegue Servidor de Producción con Docker
+ 
+ ### Instalar Docker
+  -  Descargar e instalar docker: https://docs.docker.com/engine/install/centos/
+
+ ### Despligue del Servidor
   > ```foo@bar:~$ docker-compose build```
   > 
   > ```foo@bar:~$ docker-compose up```

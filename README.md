@@ -10,7 +10,7 @@ Esta aplicación permitirá sistematizar los procesos para realizar un flujo de 
   - https://www.python.org/downloads/release/python-385/
 
 ### Instalar Django
-  - python -m pip install Django
+  > ```python -m pip install Django```
 
 ### Librerías a instalar
   - pip install django-admin-interface

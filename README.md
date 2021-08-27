@@ -10,7 +10,7 @@ Esta aplicación permitirá sistematizar los procesos para realizar un flujo de 
   - https://www.python.org/downloads/release/python-385/
 
 ### Instalar Django
-  > ```quality@qualitysoftgroup.com:~$ python -m pip install Django```
+  > ```foo@bar:~$ python -m pip install Django```
 
 ### Librerías a instalar
   - pip install django-admin-interface
@@ -28,13 +28,13 @@ Esta aplicación permitirá sistematizar los procesos para realizar un flujo de 
  
   Nota: Para más información revisar archivo requeriments.txt.
  ## Despliegue Servidor de Desarrollo
-  > ```quality@qualitysoftgroup.com:~$ cd ecommerce```
-  > ```quality@qualitysoftgroup.com:~$ python manage.py runserver```
+  > ```foo@bar:~$ cd ecommerce```
+  > ```foo@bar:~$ python manage.py runserver```
 
  ## Despliegue Servidor de Desarrollo
-  > ```quality@qualitysoftgroup.com:~$ cd ecommerce```
-  > ```quality@qualitysoftgroup.com:~$ python manage.py runserver PROD```
+  > ```foo@bar:~$ cd ecommerce```
+  > ```foo@bar:~$ python manage.py runserver PROD```
    
  ### Instalación para prueba con docker
-  > ```quality@qualitysoftgroup.com:~$docker-compose build```
-  > ```quality@qualitysoftgroup.com:~$docker-compose up```
+  > ```foo@bar:~$docker-compose build```
+  > ```foo@bar:~$docker-compose up```

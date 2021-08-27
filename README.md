@@ -28,7 +28,7 @@ Esta aplicación permitirá sistematizar los procesos para realizar un flujo de 
  
   Nota: Para más información revisar archivo requeriments.txt.
  ## Despliegue Servidor de Desarrollo
-  > cd ecommerce
+  > ```console foo@bar:~$ cd ecommerce```
   > python manage.py runserver
 
  ## Despliegue Servidor de Desarrollo

@@ -9,7 +9,7 @@ services:
   ecommerce_app:
     build: .
     volumes:
-      - static:/code/static
+      - static:/code/ecommerce/static
       - .:/code
     depends_on:
       - db_postgres
@@ -20,7 +20,7 @@ services:
       - 8000:80
     volumes:
       - ./config/nginx/conf.d:/etc/nginx/conf.d
-      - static:/code/static
+      - static:/code/ecommerce/static
     depends_on:
       - ecommerce_app
 

@@ -6,12 +6,11 @@ import sys
 
 def main(arg2):
     """Run administrative tasks."""
-    environment='development'
+    environment='production'
     if arg2:
-        environment='production'
+        environment='development' 
         sys.argv.pop(arg2)
-
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerce.settings.'+environment)
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerce.settings.'+environment)
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -25,6 +24,6 @@ def main(arg2):
 
 if __name__ == '__main__':
     arg=''
-    if sys.argv[len(sys.argv)-1]=='PROD':
+    if sys.argv[len(sys.argv)-1]=='DEV':
         arg = len(sys.argv)-1
     main(arg)

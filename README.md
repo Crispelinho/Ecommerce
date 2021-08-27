@@ -42,7 +42,7 @@ Esta aplicación permitirá sistematizar los procesos para realizar un flujo de 
  ### Instalar Docker
   -  Descargar e instalar docker: https://docs.docker.com/engine/install/centos/
 
- ### Despligue del Servidor
+ ### Despliegue del Servidor
   > ```foo@bar:~$ docker-compose build```
   > 
   > ```foo@bar:~$ docker-compose up```

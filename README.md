@@ -26,8 +26,7 @@ Esta aplicación permitirá sistematizar los procesos para realizar un flujo de 
   - pip install reportlab
   - pip install whitenoise
  
-  - Para más información revisar archivo requeriments.txt
-  - 
+  Nota: Para más información revisar archivo requeriments.txt.
  ## Despliegue Servidor de Desarrollo
   - cd ecommerce
   - python manage.py runserver

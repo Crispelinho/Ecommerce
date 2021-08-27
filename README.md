@@ -40,7 +40,10 @@ Esta aplicación permitirá sistematizar los procesos para realizar un flujo de 
  ## Despliegue Servidor de Producción con Docker
  
  ### Instalar Docker
-  -  Descargar e instalar docker: https://docs.docker.com/engine/install/centos/
+  -  Descargar e instalar docker: https://docs.docker.com/engine/install/
+
+ ### Instalar Docker Compose
+  -  Descargar e instalar docker-compose: https://docs.docker.com/compose/install/
 
  ### Despliegue del Servidor
   > ```foo@bar:~$ docker-compose build```

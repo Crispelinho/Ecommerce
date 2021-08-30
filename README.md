@@ -60,6 +60,7 @@ Esta aplicación permitirá sistematizar los procesos para realizar un flujo de 
   
 ### Informe de pedidos pagados y / o enviados
    Con la siguiente consulta podrá obtener en un adminsitrador de SQLITE un informe SQL con la información de los pedidos pagados y / o enviados.
+   
   ```SELECT O.*, CASE WHEN S.STATE_ID ISNULL THEN 0 ELSE S.STATE_ID END AS STATE_SHIP FROM ORDERMANAGEMENT_ORDER AS O LEFT JOIN SHIPPINGMANAGEMENT_SHIPMENT AS S ON (O.ID =S.ORDER_ID) WHERE O.STATE_ID = 2```
   
 ### Credenciales para loguearse en el Portal de Administración

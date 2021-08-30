@@ -64,4 +64,5 @@ Esta aplicación permitirá sistematizar los procesos para realizar un flujo de 
   
 ### Credenciales para loguearse en el Portal de Administración
   user: prueba
+  
   pass:@!ftSrAxyMQ5!Lh

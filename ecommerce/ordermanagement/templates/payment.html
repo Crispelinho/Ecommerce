@@ -8,7 +8,7 @@
         <form action="/payment/" method="POST">{% csrf_token %}
             <!-- {{form.as_ul}} -->
             <div class="row ">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label for="desde-text" class="col-form-label">Payment Method:</label>
                     <select class="form-control" name="payment_method" >
                         <option value="0">Select State</option>
@@ -17,13 +17,11 @@
                         {% endfor %}
                     </select>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label for="message-text" class="col-form-label">Payment Value:</label>
                     {{form.payment_value}}
                 </div>
-            </div>
-            <div class="row">  
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label for="desde-text" class="col-form-label">Order:</label>
                     <select class="form-control" name="orderPayment" >
                         <option value="0">Select Order</option>
@@ -47,7 +45,6 @@
                         <th scope="col">DATE PAYMENT</th>
                         <th scope="col">ORDER</th>
                         <th scope="col">PAYMENT</th>
-                        <th scope="col">ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,8 +56,6 @@
                         <td>{{ op.payment.datetime_payment }}</td>
                         <td>{{ op.order }}</td>
                         <td>{{ op.payment.id }}</td>
-                        <td><button type="button" class="btn btn-success ">Editar</button>
-                            <button type="button" class="btn btn-danger">Eliminar</button></td>
                     </tr>
                     {% endfor %}
                 </tbody>

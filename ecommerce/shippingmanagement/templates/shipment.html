@@ -54,12 +54,171 @@
                         <td>{{ s.departure_datetime }}</td>
                         <td>{{ s.state }}</td>
                         <td>{{ s.order.id }}</td>
-                        <td><button type="button" class="btn btn-success ">Editar</button>
-                            <button type="button" class="btn btn-danger">Eliminar</button></td>
-                    </tr>
+                        <td><button type="button" class="btn btn-success " onclick="modalEditar(`{{s.id}}`)">Editar</button>
+                        </td>
+                        </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
 </div>
+<!-- MODAL EDITAR  -->
+<div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Shipment Edit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="documento">Departure DateTime</label>
+                        <input class="form-control form-control-sm" type="text" placeholder="Departure DateTime"
+                            id="dd" REQUIRED name="departure" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="nombre">State Shipment:</label>
+                        <select id="stes" class="form-control" disabled>
+                            {% for st in states %}
+                            <option value="{{st.id}}">{{st.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="nombre">Order Shipment:</label>
+                        <select id="ordersh" class="form-control" disabled>
+                            {% for or in orders %}
+                            <option value="{{or.id}}">{{or.id}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="nombre">State Order:</label>
+                        <select id="ste" class="form-control" disabled>
+                            {% for st in states %}
+                            <option value="{{st.id}}">{{st.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="nombre">Payment Method:</label>
+                        <select id="pm" class="form-control" disabled>
+                            {% for pm in paymentmethods %}
+                            <option value="{{pm.id}}">{{pm.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="nombre">Amount Order:</label>
+                        <input class="form-control form-control-sm" type="text" placeholder="Amount" id="amount" REQUIRED
+                            name="Quantity" onkeypress='return event.charCode >= 48 && event.charCode <= 57' disabled>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="nombre">Pending Amount Order:</label>
+                        <input class="form-control form-control-sm" type="text" placeholder="Pending Amount:" id="pa"
+                            REQUIRED name="Quantity" onkeypress='return event.charCode >= 48 && event.charCode <= 57' disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="documento">Shipment Address Order</label>
+                        <input class="form-control form-control-sm" type="text" placeholder="Shipment Address"
+                            id="saddress" REQUIRED name="address">
+                    </div>
+                </div>
+            </div>
+            <div id="buttonsave" class="modal-footer text-center">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- MODAL ADVERTENCIA ELIMINAR -->
+<div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Hola !</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Seguro que desea Eliminar.
+
+            </div>
+            <div class="modal-footer" id="buttonEliminar">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+{% block scripts %}
+{% csrf_token %}
+<script>
+    var array = []
+    {% for sh in shipments %}
+    array.push({ id: "{{sh.id}}", departure_dateTime: "{{sh.departure_datetime}}", stateShipment: "{{sh.state.id}}", orderShipment: "{{sh.order}}",  state: "{{sh.order.state.id}}", payment_method: "{{sh.order.payment_method.id}}", amount: "{{sh.order.amount}}", pending_amount: "{{sh.order.pending_amount}}", shipment_address: "{{sh.order.shipment_address}}" });
+    {% endfor %}
+    console.log(array)
+
+    function modalEditar(id) {
+        var row = validateFind(array, 'id', id)
+        console.log('ROW', row)
+        $('#editar').modal('show');
+        $('#pp').val(row.departure_dateTime);
+        $('#stes').val(row.stateShipment);
+        $('#ordersh').val(row.orderShipment);
+        $('#ste').val(row.state);
+        $('#pm').val(row.payment_method);
+        $('#amount').val(row.amount);
+        $('#pa').val(row.pending_amount);
+        $('#saddress').val(row.shipment_address);
+        $('#buttonsave').html('<Button type="button" class="btn btn-primary" onclick="guardar(' + id + ')" value="2">Guardar</Button><button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>');
+    }
+
+    function guardar(id) {
+        var departure_dateTime = $('#pp').val();
+        var stateShipment = $('#stes').val();
+        var orderShipment = $('#ordersh').val();
+        var state = $('#ste').val();
+        var payment_method = $('#pm').val();
+        var amount = $('#amount').val();
+        var pending_amount = $('#pa').val();
+        var shipment_address = $('#saddress').val();
+        var detalleArray = {}
+        detalleArray.departure_dateTime = departure_dateTime
+        detalleArray.stateShipment = stateShipment
+        detalleArray.orderShipment = orderShipment
+        detalleArray.state = state
+        detalleArray.payment_method = payment_method
+        detalleArray.amount = amount
+        detalleArray.pending_amount = pending_amount
+        detalleArray.shipment_address = shipment_address
+        var data = JSON.stringify({ id: id, detalleArray })
+        datos = {
+            editar: data,
+            csrfmiddlewaretoken: '{{ csrf_token }}'
+        }
+        $.post("{% url 'shipment' %}", datos)
+        $('#editar').modal('hide');
+        window.location.href = '/shipment/';
+
+    }
+    function validateFind(array, key, value) {
+        return array.find(function (e) {
+            return e[key] === value;
+        });
+    }
+
+</script>
 {% endblock %}

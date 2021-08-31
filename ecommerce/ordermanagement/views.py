@@ -19,7 +19,6 @@ class OrderViewSet(viewsets.ModelViewSet):
     def get_serializer(self, *args, **kwargs):
         if self.request.method.lower() == 'post':
             data = kwargs.get('data')
-            print(data)
             kwargs['many'] = isinstance(data, list)
         return super(OrderViewSet, self).get_serializer(*args, **kwargs)
 class OrderProductViewSet(viewsets.ModelViewSet):
@@ -78,7 +77,6 @@ def ProductFormView(request):
 def OrderFormView(request):
     template = loader.get_template('order.html')
     if request.method == 'POST':
-        print('AQUI',request.POST)
         form = OrderForm(request.POST)
         if ('payment_method' in request.POST) or ('pending_amount' in request.POST):
             if form.is_valid():   

@@ -7,10 +7,10 @@ from django.conf.urls import url, include
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'product', ProductViewSet, basename="product")
-router.register(r'order', OrderViewSet, basename="order")
+router.register(r'product', ProductViewSet, basename="products")
+router.register(r'order', OrderViewSet, basename="orders")
 router.register(r'orderProduct', OrderProductViewSet)
-router.register(r'payment', PaymentViewSet)
+router.register(r'payment', PaymentViewSet,basename="payments")
 router.register(r'oredePayment', OrderPaymentViewSet)
 
 urlpatterns = [

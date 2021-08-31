@@ -15,7 +15,6 @@ from datetime import timedelta
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '3555@_)#$=7=9pyv9qg!i1ahg$a7(acg-53-23n&utc44tjzi='
 
@@ -100,6 +99,10 @@ TEMPLATES = [
     },
 ]
 
+PROJECT_DIR = Path(__file__).parent.parent.parent
+FIXTURE_DIRS = (
+    os.path.join(PROJECT_DIR, 'fixtures'), 
+    )
 WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 # Password validation
@@ -125,6 +128,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+# LANG="en_US.UTF-8"
 
 TIME_ZONE = 'UTC'
 
